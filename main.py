@@ -47,26 +47,26 @@ async def get_fw_logs() -> list:
 
            
 
-# @app.post("/update_db")
-# async def insert_logs_to_db():
-#     original_logs = subprocess.getoutput('cat /var/log/fw_logs.log')
-#     logs_line = original_logs.split('\n')
-#     logs_json = []
-#     for log in logs_line:
-#         action, zone, srcint, destint, srcip, destip, destport = re.findall(filter, log)[0]
-#         parsed_logs_json = {
-#             "action": action,
-#             "zone": zone,
-#             "srcint": srcint,
-#             "destint": destint,
-#             "srcip": srcip,
-#             "destip": destip,
-#             "destport": destport
-#         }
-#         logs_json.append(parsed_logs_json)
-#     collection.insert_many(logs_json)
+@app.post("/update_db")
+async def insert_logs_to_db():
+    original_logs = subprocess.getoutput('cat /var/log/fw_logs.log')
+    logs_line = original_logs.split('\n')
+    logs_json = []
+    for log in logs_line:
+        action, zone, srcint, destint, srcip, destip, destport = re.findall(filter, log)[0]
+        parsed_logs_json = {
+            "action": action,
+            "zone": zone,
+            "srcint": srcint,
+            "destint": destint,
+            "srcip": srcip,
+            "destip": destip,
+            "destport": destport
+        }
+        logs_json.append(parsed_logs_json)
+    collection.insert_many(logs_json)
         
-#     return "DB update successfuly"
+    return "DB update successfuly"
             
         
         
