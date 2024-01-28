@@ -11,6 +11,7 @@ app = FastAPI()
 
 filter = "(\w+)\s(\d+)\s(.*)\s(\w+)\s(.*)\sIN=(\w+)\sOUT=(\w+)\sSRC=(.*)\sDST=(.*)\sDPT=(\d+)"
 
+
 # The original file of the logs
 log_directory = "/var/log/syslog"
 
@@ -50,6 +51,11 @@ def make_logs() -> list:
 
 @app.get("/fw_logs")
 async def get_fw_logs() -> list:
+    # if status_code <= 600:
+    #     return RedirectResponse(url="/error")
+    # else:
+        
+    #     return make_logs()
     return make_logs()
         
         
