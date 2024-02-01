@@ -2,3 +2,4 @@ Sun Oct 22 06:26:19 2023 kern.warn kernel: [59591.886594] reject lan out: IN=To_
 
 
 Oct 27 07:22:19 reject lan IN=To_Fortinet OUT=eth1 SRC=10.10.40.1 DST=10.10.50.1  DPT=1001
+
