@@ -27,7 +27,14 @@ monitor_file() {
     while read -r event; do
         echo "File changed. Updating filtered content..."
         apply_filters_and_copy
+        update_db
     done
+}
+
+# Function to write the filtered logs to the mongoDB
+update_db() {
+    curl -XPOST localhost:8001/update_db
+    truncate -s 0 /var/log/fw_logs.log
 }
 
 # Run the initial copy and start monitoring
