@@ -6,7 +6,7 @@ destination_file="/var/log/fw_logs.log"
 # Initial copy of the file
 cp "$source_file" "$destination_file"
 
-# Function to apply filters and copy the content
+# Function to apply filters and copy the content   
 apply_filters_and_copy() {
     awk '/drop|accept|reject/ {print $1, $2, $3, $7, $8, $10, $11, $13, $14, $23 }' "$source_file" \
     | sed 's/MAC=[^ ]*//' \
