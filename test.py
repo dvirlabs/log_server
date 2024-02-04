@@ -6,7 +6,7 @@ log = "Oct 27 07:22:19 reject lan IN=To_Fortinet OUT=eth1 SRC=10.10.40.1 DST=10.
 pattern = r'(\w{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (\w+) (\w+) IN=(\S+) OUT=(\S+) SRC=([\d.]+) DST=([\d.]+) DPT=(\d+)'
 
 # Use re.match to find the pattern in the log
-match = re.match(pattern, log)  
+match = re.match(pattern, log)    
 
 # Extract the fields
 if match:
