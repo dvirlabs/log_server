@@ -8,7 +8,7 @@ pattern = r'(\w{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (\w+) (\w+) IN=(\S+) OUT=(\S+)
 # Use re.match to find the pattern in the log
 match = re.match(pattern, log)
 
-# Extract the fields
+# Extract the fields 
 if match:
     month = match.group(1)
     day = match.group(2)
