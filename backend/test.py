@@ -1,6 +1,6 @@
 import re
 
-log = "Oct 27 07:22:19 reject lan IN=To_Fortinet OUT=eth1 SRC=10.10.40.1 DST=10.10.50.1 DPT=1001"
+log = "Oct 27 07:22:19 reject lan IN=To_Fortinet OUT=eth1 SRC=10.10.40.1 DST=10.10.50.1 DPT=1001" 
 
 # Define the regular expression pattern to match the fields
 pattern = r'(\w{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (\w+) (\w+) IN=(\S+) OUT=(\S+) SRC=([\d.]+) DST=([\d.]+) DPT=(\d+)'
