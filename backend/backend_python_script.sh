@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /root/log_server
+cd /root/log_server/backend
 
 source log_server/bin/activate
 
