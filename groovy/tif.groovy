@@ -14,12 +14,16 @@ pipeline {
                     def command = 'echo "Hello from Jenkins" > /tmp/tif-groovy.txt'
 
                     // Execute SSH command
-                    sshCommand remote: [
-                        host: remoteHost,
-                        user: remoteUser,
-                        password: remotePassword,
-                        allowAnyHosts: true // Allow connecting to any host (not recommended for production)
-                    ], command: command
+                    // sshCommand remote: [
+                    //     host: remoteHost,
+                    //     user: remoteUser,
+                    //     password: remotePassword,
+                    //     allowAnyHosts: true // Allow connecting to any host (not recommended for production)
+                    // ], command: command
+
+                    sh(script: """
+                        sshpass -p ${remotePassword} ssh -o StrictHostKeyChecking=no ${remoteUser}@${remoteHost} '${command}'
+                    """)
                 }
             }
         }
