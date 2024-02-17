@@ -5,9 +5,6 @@ pipeline {
 
         stage("build") {
             steps {
-                echo 'building the application...'
-                sh "echo tif build"
-
                 script {
                     def remoteHost = '192.168.1.30'
                     def remoteUser = 'root'
