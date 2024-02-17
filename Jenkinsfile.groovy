@@ -5,12 +5,11 @@ pipeline {
         stage('SSH Command') {
             steps {
                 script {
-                    sshCommand remote: [
-                        host: '192.168.1.30',
-                        user: 'root',
-                        password: 'Aa123456',
-                        allowAnyHosts: true // Optional: Allow connections to hosts with non-trusted keys
-                    ], command: 'echo "word" > /tmp/file.txt'
+                    sshagent(['your_ssh_credentials_id']) {
+                        sh '''
+                            ssh -o StrictHostKeyChecking=no root@192.168.1.30 'echo "word" > /tmp/file.txt'
+                        '''
+                    }
                 }
             }
         }
