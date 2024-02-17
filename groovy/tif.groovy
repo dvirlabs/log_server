@@ -6,7 +6,9 @@ pipeline {
         stage("build") {
             steps {
                  sshagent (credentials: ['123456']) {
-                        sh 'sudo ssh -o StrictHostKeyChecking=no -i /tmp/tif root@192.168.1.30'
+                         sh(script: """
+                            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /tmp/tif root@192.168.1.30
+                        """)
                         sh 'echo tif > /tmp/tif.txt'
                     }
             }
