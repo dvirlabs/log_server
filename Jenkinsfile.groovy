@@ -14,7 +14,7 @@ pipeline {
                     remote.allowAnyHosts = true // This allows connections to hosts with non-trusted keys
 
                     // Execute SSH command
-                    remote: remote, command: 'echo "word" > /tmp/file.txt'
+                    command: 'echo "word" > /tmp/file.txt'
                 }
             }
         }
