@@ -1,20 +1,16 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Execute SSH command') {
+        stage('SSH Command') {
             steps {
                 script {
-                    // Define SSH credentials
-                    def remote = [:]
-                    remote.name = 'log_server'
-                    remote.host = '192.168.1.30'
-                    remote.user = 'root'
-                    remote.password = 'Aa123456'
-                    remote.allowAnyHosts = true // This allows connections to hosts with non-trusted keys
-
-                    // Execute SSH command
-                    command: 'echo "word" >> /tmp/file.txt'
+                    sshCommand remote: [
+                        host: '192.168.1.30',
+                        user: 'root',
+                        password: 'Aa123456',
+                        allowAnyHosts: true // Optional: Allow connections to hosts with non-trusted keys
+                    ], command: 'echo "word" > /tmp/file.txt'
                 }
             }
         }
