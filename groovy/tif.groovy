@@ -21,8 +21,9 @@ pipeline {
                     //     allowAnyHosts: true // Allow connecting to any host (not recommended for production)
                     // ], command: command
 
+                    // Execute SSH command using sh step
                     sh(script: """
-                        sshpass -p ${remotePassword} ssh -o StrictHostKeyChecking=no ${remoteUser}@${remoteHost} '${command}'
+                        sshpass -p ${remotePassword} ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password ${remoteUser}@${remoteHost} '${command}'
                     """)
                 }
             }
