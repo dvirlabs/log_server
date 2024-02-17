@@ -5,7 +5,7 @@ pipeline {
         stage('SSH Command') {
             steps {
                 script {
-                    sshagent(['your_ssh_credentials_id']) {
+                    sshagent(['123456']) {
                         sh '''
                             ssh -o StrictHostKeyChecking=no root@192.168.1.30 'echo "word" > /tmp/file.txt'
                         '''
